@@ -27,9 +27,9 @@ jobs:
       - name: Lancer le déploiement Ansible
         uses: dawidd6/action-ansible-playbook@v2
         with:
-          playbook: ansible/playbook.yml
+          playbook: playbook.yml
           directory: ansible/
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           options: |
             -u ${{ secrets.SSH_USERNAME }}
-            -i ansible/inventory.ini
+            -i inventory.ini
