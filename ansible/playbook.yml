@@ -4,7 +4,7 @@
   tasks:
     - name: Mettre à jour l'image Docker GameNode
       docker_image:
-        name: chafikali250/gamenode:latest
+        name: chali250/gamenode:latest
         source: pull
 
     - name: Redémarrer le conteneur avec la nouvelle image
