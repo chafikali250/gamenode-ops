@@ -1,4 +1,3 @@
----
 - name: Déploiement de GameNode Ops
   hosts: server1
   become: yes
