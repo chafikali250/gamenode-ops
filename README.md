@@ -23,14 +23,3 @@ This repository demonstrates an end-to-end CI/CD and monitoring architecture for
 *   **CI/CD & Automation**: GitHub Actions, Ansible
 *   **Monitoring**: Prometheus, Grafana
 
----
-
-## 🚀 Quick Start (Local Setup)
-
-```bash
-# Clone repository
-git clone [https://github.com/YOUR_USERNAME/gamenode-ops.git](https://github.com/YOUR_USERNAME/gamenode-ops.git)
-cd gamenode-ops
-
-# Start the full stack (App + Prometheus + Grafana)
-docker compose up -d
