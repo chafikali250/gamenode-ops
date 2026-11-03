@@ -1,0 +1,14 @@
+{
+  "name": "gamenode-ops",
+  "version": "1.0.0",
+  "description": "Serveur de jeu simulé pour CI/CD et Monitoring",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "prom-client": "^15.1.3",
+    "socket.io": "^4.7.5"
+  }
+}
