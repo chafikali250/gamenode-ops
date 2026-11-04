@@ -1,39 +1,12 @@
-name: GameNode CI/CD with Ansible
-
-on:
-  push:
-    branches: ["master"]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-
 jobs:
   deploy:
     runs-on: self-hosted
-
     steps:
-      - name: Recuperation du code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Connexion a Docker Hub
-        uses: docker/login-action@v3
+      - name: Run Ansible Playbook
+        uses: dawidd6/action-ansible-playbook@v2
         with:
-          username: ${{ secrets.DOCKER_HUB_USERNAME }}
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
-
-      - name: Configuration Docker Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Construction et publication Docker
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/gamenode:latest
-
-      - name: Deploiement avec Ansible
-        run: |
-          ansible-playbook \
-            -i ansible/inventory.ini \
-            ansible/playbook.yml
+          playbook: playbook.yml
+          directory: ansible
