@@ -1,17 +1,13 @@
-- name: Déploiement de GameNode Ops
-  hosts: server1
-  become: yes
-  tasks:
-    - name: Mettre à jour l'image Docker GameNode
-      docker_image:
-        name: chali250/gamenode:latest
-        source: pull
+- name: Mettre à jour l'image Docker GameNode
+  docker_image:
+    name: chali250/gamenode:latest
+    source: pull
 
-    - name: Redémarrer le conteneur avec la nouvelle image
-      docker_container:
-        name: gamenode
-        image: chafikali250/gamenode:latest
-        state: started
-        restart_policy: always
-        published_ports:
-          - "3000:3000"
+- name: Redémarrer le conteneur avec la nouvelle image
+  docker_container:
+    name: gamenode
+    image: chali250/gamenode:latest
+    state: started
+    restart_policy: always
+    published_ports:
+      - "3000:3000"
